@@ -479,6 +479,7 @@ class IgraphCCoreBuilder(object):
 
             # Patch ltmain.sh so it does not freak out on OS X when the build
             # directory contains spaces
+            '''
             with open("ltmain.sh") as infp:
                 with open("ltmain.sh.new", "w") as outfp:
                     for line in infp:
@@ -486,6 +487,7 @@ class IgraphCCoreBuilder(object):
                             line = line.replace("cd $darwin_orig_dir\n", "cd \"$darwin_orig_dir\"\n")
                         outfp.write(line)
             os.rename("ltmain.sh.new", "ltmain.sh")
+            '''
 
             print("Configuring igraph...")
             retcode = subprocess.call(["./configure", "--disable-tls", "--disable-gmp"],
